@@ -63,20 +63,20 @@ public class BallBehavior : MonoBehaviour
 
         mouseDownTime = Time.time - mouseDownTimeStart;
        
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !hasKicked)
         {
             mouseDownPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100) ;
             mouseDownTimeStart = Time.time;
 
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !hasKicked)
         {
             
             showForce(calculateVelocity(mouseDownTime));
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !hasKicked)
         {
             mouseUpPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
             velocity = CalculateNormalizedDirection() * calculateVelocity(mouseDownTime);
